@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "c04c1196-c7e3-44dc-9160-d58f02c67258",
+		"name": "MS-EXCHANGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/exchange",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Record an exchange",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"inputCurrency\": \"PEN\",\r\n  \"outputCurrency\": \"BOOTCOIN\",\r\n  \"exchange\": 0.35,\r\n  \"fk_insertionUser\": \"LIM3J9\",\r\n  \"insertionTerminal\": \"EDGE-WEB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/exchange",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Last exchange by tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"inputCurrency\": \"PEN\",\r\n  \"outputCurrency\": \"BOOTCOIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/exchange/tag",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange",
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List an specific exchange record by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/exchange/627417e6bdd7be0adef7ebf0",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange",
+						"627417e6bdd7be0adef7ebf0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List exchange records by input currency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/exchange/input/PEN",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange",
+						"input",
+						"PEN"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List exchange records by output currency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/exchange/output/PEN",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"exchange",
+						"output",
+						"PEN"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"//Local Environment",
+					"pm.globals.set(\"api_url\", \"http://localhost:3005\");",
+					"",
+					"//Production Environment",
+					"",
+					"//pm.globals.set(\"api_url\", \"http://gateway-service.eastus.azurecontainer.io\");",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
